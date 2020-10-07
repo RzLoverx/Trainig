@@ -12,23 +12,23 @@ public class TrailCalculation {
 		//Loan amount
 		System.out.print("Enter Loan Amount : Rs.");
 		input=s1.nextLine();
-		while(!t1.Validaten(input)) {
+		while(!t1.validaten(input)) {
 			System.out.print("Enter Loan Amount : Rs.");
 			input=s1.nextLine();
 		}
 		t1.loanAmount=Double.parseDouble(input);
 		//no of periods
-		System.out.print("Enter Repayment Period in months: ");
+		System.out.print("Enter Repayment Period in months : ");
 		input=s1.nextLine();
-		while(!t1.Validaten(input)) {
-			System.out.print("Enter Repayment Period in months: ");
+		while(!t1.validaten(input)) {
+			System.out.print("Enter Repayment Period in months : ");
 			input=s1.nextLine();
 		}
 		t1.noOfPeriods=Integer.parseInt(input);
 		//Interest Rate
 		System.out.print("Enter Annum Interest Rate : ");
 		input=s1.nextLine();
-		while(!t1.Validaten(input)) {
+		while(!t1.validaten(input)) {
 			System.out.print("Enter Annum Interest Rate : ");
 			input=s1.nextLine();
 		}
@@ -47,7 +47,7 @@ public class TrailCalculation {
 		
 	}
 	
-	public boolean Validaten(String number) {
+	public boolean validaten(String number) {
 		boolean validate=true;
 		int size =number.length();
 		for(int index=0;index<size;index++) {
@@ -68,7 +68,7 @@ public class TrailCalculation {
 	public void Printtable(double loanA, int numberOfPeriods , double interestRate  ,double rentalValue) {
 		System.out.println("_________________________________________________________________________________________");
 		System.out.println("| Rental No \t | Rental Value  | Interest Amount | Capital Amount | Capital Balance   |");
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("|----------------|---------------|-----------------|----------------|-------------------|");
 		System.out.println("| 0 \t\t |\t\t | \t\t   | \t\t    | "+loanA+"\t\t|");
 		for(int x=1;x<=numberOfPeriods;x++) {
 			double ia=Math.round((loanA*interestRate/12)*100)/100.00;
@@ -79,11 +79,11 @@ public class TrailCalculation {
 				System.out.println("| "+x+" \t \t | Rs."+rentalValue+"\t | "+ia+"\t   | "+ca+"\t    | "+loanA+" \t\t|");
 			}
 			else {
-				System.out.println("| "+x+" \t \t | Rs."+rentalValue+"\t | "+ia+"\t   | "+ca+"\t    | "+loanA+"\t\t|");
+				System.out.println("| "+x+" \t \t | Rs."+rentalValue+"\t | "+ia+" \t   | "+ca+"\t    | "+loanA+"\t\t|");
 			}
 				
 		}
-		System.out.println("_________________________________________________________________________________________");
+		System.out.println("|________________|_______________|_________________|________________|___________________|");
 		
 	}
 }
