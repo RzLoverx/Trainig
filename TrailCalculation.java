@@ -12,15 +12,15 @@ public class TrailCalculation {
 		//Loan amount
 		System.out.print("Enter Loan Amount : Rs.");
 		input=s1.nextLine();
-		while(!t1.validaten(input)) {
+		while(!t1.validatendouble(input)) {
 			System.out.print("Enter Loan Amount : Rs.");
 			input=s1.nextLine();
 		}
 		t1.loanAmount=Double.parseDouble(input);
-		//no of periods
+		//Number of periods
 		System.out.print("Enter Repayment Period in months : ");
 		input=s1.nextLine();
-		while(!t1.validaten(input)) {
+		while(!t1.validatenint(input)) {
 			System.out.print("Enter Repayment Period in months : ");
 			input=s1.nextLine();
 		}
@@ -28,7 +28,7 @@ public class TrailCalculation {
 		//Interest Rate
 		System.out.print("Enter Annum Interest Rate : ");
 		input=s1.nextLine();
-		while(!t1.validaten(input)) {
+		while(!t1.validatendouble(input)) {
 			System.out.print("Enter Annum Interest Rate : ");
 			input=s1.nextLine();
 		}
@@ -47,12 +47,30 @@ public class TrailCalculation {
 		
 	}
 	
-	public boolean validaten(String number) {
+	public boolean validatendouble(String number) {
 		boolean validate=true;
 		int size =number.length();
 		for(int index=0;index<size;index++) {
 			char numberchar=number.charAt(index);
 			if (numberchar=='0'||numberchar=='1'||numberchar=='2'||numberchar=='3'||numberchar=='4'||numberchar=='5'||numberchar=='6'||numberchar=='7'||numberchar=='8'||numberchar=='9'||numberchar=='.') {
+				
+			}
+			else {
+				validate=false;
+				System.out.println("Wrong input");
+				break;
+			}
+		}
+		
+		return validate;
+	}
+	
+	public boolean validatenint(String number) {
+		boolean validate=true;
+		int size =number.length();
+		for(int index=0;index<size;index++) {
+			char numberchar=number.charAt(index);
+			if (numberchar=='0'||numberchar=='1'||numberchar=='2'||numberchar=='3'||numberchar=='4'||numberchar=='5'||numberchar=='6'||numberchar=='7'||numberchar=='8'||numberchar=='9') {
 				
 			}
 			else {
